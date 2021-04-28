@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="showHighestScore()">
+<fieldset>
+    <legend style="color: red"><h2>Snake Game</h2></legend>
+    <p>Choose the mode:</p>
+    <p>
+        <button onclick="easyMode()">Easy</button>
+        <button onclick="normalMode()">Normal</button>
+        <button onclick="hardMode()">Hard</button>
+    </p>
+    <p>then press Start button to play</p>
+    <p>
+        <button id="butStart">Start Game</button>
+        <button onclick="window.location.reload()">Restart</button>
+    </p>
+    <p><strong>Score:</strong><span id="score">0</span></p>
+</fieldset>
+<fieldset>
+    <legend style="color: red"><h2>Highest Scores</h2></legend>
+    <ul id="saveScore"></ul>
+</fieldset>
+<canvas id="myCanvas" width="600" height="500"></canvas>
+<script src="snake.js"></script>
+<script src="mode.js"></script>
+<script src="highestScore.js"></script>
+<script src="food.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
