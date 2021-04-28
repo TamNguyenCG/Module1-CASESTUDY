@@ -1,11 +1,11 @@
 function saveScoreArray(score){
-    let user = [name,score];
-    localStorage.setItem(name,JSON.stringify(user));
+    let user = [nameSave,score];
+    localStorage.setItem(nameSave,JSON.stringify(user));
 }
 
 function loadScoreArray(){
-    if(localStorage.hasOwnProperty(name)){
-        return JSON.parse(localStorage.getItem(name))
+    if(localStorage.hasOwnProperty(nameSave)){
+        return JSON.parse(localStorage.getItem(nameSave))
     }else{
         return [];
     }
