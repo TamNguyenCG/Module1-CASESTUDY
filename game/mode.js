@@ -1,4 +1,4 @@
-function easyMode(){
+function easyMode() {
     speed = 8;
     return speed;
 }

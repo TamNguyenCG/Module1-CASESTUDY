@@ -16,7 +16,7 @@ function drawSnake() {
     ctx.fillStyle = 'green';
     for (let i = 0; i < snakeParts.length; i++) {
         let part = snakeParts[i];
-        ctx.fillRect(part.x * tileCount, part.y * tileCount, tileSize, tileSize)
+        ctx.fillRect(part.x * box, part.y * box, miniBoxSize, miniBoxSize)
     }
     snakeParts.push(new SnakePart(headX, headY));
     if (snakeParts.length > tailLenghth) {
@@ -24,24 +24,22 @@ function drawSnake() {
     }
     //Snake head
     ctx.fillStyle = 'orange';
-    ctx.fillRect(headX * tileCount, headY * tileCount, tileSize, tileSize)
+    ctx.fillRect(headX * box, headY * box, miniBoxSize, miniBoxSize)
 }
 
 function checkCollision() {
     if (foodX === headX && foodY === headY) {
-        foodX = Math.floor(Math.random() * (tileCount - 1));
-        foodY = Math.floor(Math.random() * (tileCount - 5));
+        foodX = Math.floor(Math.random() * (box - 1));
+        foodY = Math.floor(Math.random() * (box - 5));
         tailLenghth++;
         score++;
         eatSound.play();
     }
-}
-
-for (let i = 0; i < snakeParts.length; i++) {
-    let part = snakeParts[i];
-    if (foodX === part.x && foodY === part.y) {
-        foodX = Math.floor(Math.random() * (tileCount - 1));
-        foodY = Math.floor(Math.random() * (tileCount - 5));
+    for (let i = 0; i < snakeParts.length; i++) {
+        let part = snakeParts[i];
+        if (foodX === part.x && foodY === part.y) {
+            foodX = Math.floor(Math.random() * (box - 1));
+            foodY = Math.floor(Math.random() * (box - 5));
+        }
     }
-
 }

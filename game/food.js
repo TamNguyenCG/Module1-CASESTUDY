@@ -4,6 +4,6 @@ let foodY = 5;
 
 function drawFood(){
     ctx.fillStyle='red';
-    ctx.fillRect(foodX*tileCount,foodY*tileCount,tileSize,tileSize)
+    ctx.fillRect(foodX*box,foodY*box,miniBoxSize,miniBoxSize)
 }
 

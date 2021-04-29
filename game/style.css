@@ -1,14 +1,20 @@
-form {
-    position: absolute;
-    margin: 0 auto;
-    top: 80px
+body{
+    text-align: center;
 }
-
-fieldset {
+#fs1 {
     background-color: wheat;
     width: 200px;
+    position:absolute;
 }
 
+#fs2{
+    background-color: wheat;
+    width: 200px;
+    position: fixed;
+    z-index: 2;
+    float:right;
+    margin-left: 900px;
+}
 p, legend {
     text-align: center;
 }
@@ -20,12 +26,13 @@ canvas {
     top: 30px;
     background-image: url("image/Untitled.png");
     background-repeat: no-repeat;
+    z-index: -1;
 }
 canvas {
     box-shadow: black 30px 30px 30px;
 }
 
-.button {
+button {
     background-color: Crimson;
     border: none;
     color: white;
@@ -37,7 +44,7 @@ canvas {
     margin: 4px 2px;
     cursor: pointer;
 }
-
-
-
-
+ol{
+    color: red;
+    text-align: left;
+}

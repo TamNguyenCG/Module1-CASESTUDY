@@ -7,8 +7,8 @@ gradient.addColorStop(1.0, "red");
 
 let speed = 1;
 let name = prompt("Enter your name to start play:")
-let tileCount = 25;
-let tileSize = 22;
+let box = 25;
+let miniBoxSize = 22;
 
 let xDirection = 0;
 let yDirection = 0;
@@ -42,20 +42,20 @@ function isGameOver() {
         return false;
     }
     if (headX < 0 || headY < 0) {
-        flag = true;
         hitSound.play();
-    } else if (headX === tileCount - 1) {
         flag = true;
+    } else if (headX === box - 1) {
         hitSound.play();
-    } else if (headY === tileCount - 5) {
         flag = true;
+    } else if (headY === box - 5) {
         hitSound.play();
+        flag = true;
     }
     for (let i = 0; i < snakeParts.length; i++) {
         let part = snakeParts[i];
         if (part.x === headX && part.y === headY) {
-            flag = true;
             hitSound.play();
+            flag = true;
             break;
         }
     }
@@ -78,7 +78,7 @@ function isGameOver() {
 }
 
 function showHighestScore() {
-    document.getElementById('saveScore').innerHTML = `${loadScoreArray()}`
+    document.getElementById('saveScore').innerHTML = loadScoreArray();
 }
 
 function showScore() {
@@ -88,7 +88,7 @@ function showScore() {
 function showSpeed(speed) {
     ctx.fillStyle = 'white';
     ctx.font = "16px Arial"
-    ctx.fillText('Speed:' + speed, 11 * tileCount, 15)
+    ctx.fillText('Speed:' + speed, 11 * box, 15)
 }
 
 document.addEventListener('keydown', keyDown);
@@ -138,16 +138,20 @@ function drawGame() {
     checkCollision();
     showScore();
     setTimeout(drawGame, 1000 / speed)
-    console.log(speed);
+    // console.log(speed);
     eatSound = new sound("audio/eat.wav")
     hitSound = new sound("audio/hit.mp3")
     DieSound = new sound("audio/Die.wav")
 }
-
-document.getElementById('butStart').addEventListener('click', function () {
+let but = document.getElementById('butStart');
+but.addEventListener('click', function () {
     drawGame();
+    document.getElementById('butStart').style.display="none";
 })
 
-
-
-
+function bigThis (btn) {
+    btn.style.border = "3px solid black";
+}
+function normalThis (btn) {
+    btn.style.border = "0px";
+}

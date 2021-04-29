@@ -5,26 +5,27 @@
     <title>Snake Game</title>
     <link rel="stylesheet" href="style.css">
 
+
 </head>
-<body onload="showHighestScore()">
-<fieldset>
+<body>
+<fieldset id="fs1">
     <legend style="color: red"><h2>Snake Game</h2></legend>
     <p>Choose the mode:</p>
     <p>
-        <button onclick="easyMode()">Easy</button>
-        <button onclick="normalMode()">Normal</button>
-        <button onclick="hardMode()">Hard</button>
+        <button id="btn1" onmouseover="bigThis(this)" onmouseout="normalThis(this)" onclick="easyMode()">Easy</button>
+        <button id="btn2" onmouseover="bigThis(this)" onmouseout="normalThis(this)" onclick="normalMode()">Normal</button>
+        <button id="btn3" onmouseover="bigThis(this)" onmouseout="normalThis(this)" onclick="hardMode()">Hard</button>
     </p>
     <p>then press Start button to play</p>
     <p>
-        <button id="butStart">Start Game</button>
-        <button onclick="window.location.reload()">Restart</button>
+        <button id="butStart" onmouseover="bigThis(this)" onmouseout="normalThis(this)">Start Game</button>
+        <button onclick="window.location.reload()" onmouseover="bigThis(this)" onmouseout="normalThis(this)">Restart</button>
     </p>
     <p><strong>Score:</strong><span id="score">0</span></p>
 </fieldset>
-<fieldset>
-    <legend style="color: red"><h2>Highest Scores</h2></legend>
-    <ul id="saveScore"></ul>
+<fieldset id="fs2">
+    <legend style="color: red" id="HScore"><h2>Highest Scores</h2></legend>
+    <ol id="saveScore"></ol>
 </fieldset>
 <canvas id="myCanvas" width="600" height="500"></canvas>
 <script src="snake.js"></script>
