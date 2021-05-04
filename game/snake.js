@@ -4,13 +4,11 @@ class SnakePart {
         this.y = y;
     }
 }
-
 const snakeParts = [];
 let tailLenghth = 3;
 
 let headX = 10;
 let headY = 10;
-
 function drawSnake() {
     //Snake parts
     ctx.fillStyle = 'green';

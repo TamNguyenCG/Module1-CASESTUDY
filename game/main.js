@@ -24,10 +24,7 @@ function clearScreen() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-function changeSnakePosition() {
-    headX += xDirection;
-    headY += yDirection;
-}
+
 
 function drawPlayerName() {
     ctx.fillStyle = "white";
@@ -35,7 +32,7 @@ function drawPlayerName() {
     ctx.fillText("Player Name: " + name, 5, 15);
     // console.log(name);
 }
-
+// Check dieu kien Lose
 function isGameOver() {
     let flag = false;
     if (yDirection === 0 && xDirection === 0) {
@@ -66,7 +63,7 @@ function isGameOver() {
         ctx.fillText("GAME OVER", 100, 250);
         if (confirm("Do you want to save your scores?")) {
             nameSave=prompt("Enter your nickname to save:")
-            saveScoreArray(score);
+            saveScoreArray(score)
             showHighestScore();
             DieSound.play();
         }else{
@@ -76,6 +73,7 @@ function isGameOver() {
     // console.log(score);
     return flag;
 }
+
 
 function showHighestScore() {
     document.getElementById('saveScore').innerHTML = loadScoreArray();
@@ -91,8 +89,12 @@ function showSpeed(speed) {
     ctx.fillText('Speed:' + speed, 11 * box, 15)
 }
 
-document.addEventListener('keydown', keyDown);
 
+function changeSnakePosition() {
+    headX += xDirection;
+    headY += yDirection;
+}
+document.addEventListener('keydown', keyDown);
 function keyDown(event) {
     //Di len
     if (event.keyCode === 38) {

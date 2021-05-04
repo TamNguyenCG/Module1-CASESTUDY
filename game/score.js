@@ -1,12 +1,13 @@
+
 function saveScoreArray(score) {
     let user = [nameSave, score];
-    localStorage.setItem('nameSave', JSON.stringify(user));
+    localStorage.setItem('SnakeSave', JSON.stringify(user));
 }
 
 function loadScoreArray() {
     let str = "";
-    if (localStorage.hasOwnProperty('nameSave')) {
-        JSON.parse(localStorage.getItem('nameSave'));
+    if (localStorage.hasOwnProperty('SnakeSave')) {
+        JSON.parse(localStorage.getItem('SnakeSave'));
         str += "<li>"
         str += nameSave + " -- score: " + score
         str += "</li>"
